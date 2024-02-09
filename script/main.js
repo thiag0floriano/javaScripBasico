@@ -14,8 +14,12 @@ let meuTitulo = document.querySelector("h1");
 
 function setUsuario (){
     const meuNome = prompt("Por favor, Digite seu nome");
-    localStorage.setItem("name", meuNome);
-    meuTitulo.textContent = `Mozilla é legal, ${meuNome}`;
+    if (!meuNome){
+        setUsuario();
+    }else{
+        localStorage.setItem("name", meuNome);
+        meuTitulo.textContent = `Mozilla é legal, ${meuNome}`;
+    }
 }
 
 if (!localStorage.getItem("name")) {
